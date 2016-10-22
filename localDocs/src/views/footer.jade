@@ -1,0 +1,60 @@
+footer.page_contact.ls.parallax.section_padding_75.columns_padding_25(data-stellar-background-ratio='0.5')
+  .container
+    .row
+      .col-sm-4.to_animate(data-animation='fadeIn')
+        h3.module-header Contacts
+        .media
+          .media-left.size_small
+            i.highlight.rt-icon2-location-outline.big-icon
+          .media-body
+            | PO Box 54321 Some str. 765, Los Angeles,
+            | California, United States
+        .media
+          .media-left.size_small
+            i.highlight.rt-icon2-phone-outline.big-icon
+          .media-body
+            | +12 345 678 9123
+        .media
+          .media-left.size_small
+            i.highlight.rt-icon2-mail2.big-icon
+          .media-body
+            a(href='mailto:info@company.com') info@company.com
+      .col-sm-4.to_animate(data-animation='fadeIn',id='contact')
+        h3.module-header Form
+        form.contact-form(method='post', action='/')
+          p.contact-form-name
+            label(for='name')
+              | Name 
+              span.required *
+            input#name.form-control(type='text', aria-required='true', size='30', value='', name='name', placeholder='Name')
+          p.contact-form-email
+            label(for='email')
+              | Email 
+              span.required *
+            input#email.form-control(type='email', aria-required='true', size='30', value='', name='email', placeholder='Email')
+          p.contact-form-message
+            label(for='message') Message
+            textarea#message.form-control(aria-required='true', rows='8', cols='45', name='message', placeholder='Message')
+          p.contact-form-submit.topmargin40
+            button#contact_form_submit.theme_button(type='submit', name='contact_submit') Send Message
+      .col-sm-4.to_animate(data-animation='fadeIn')
+        h3.module-header Flickr Widget
+        .widget.widget_flickr
+          ul#flickr
+section.page_copyright.ls.section_padding_50
+  .container
+    .row.to_animate
+      .col-sm-12.text-center
+        a.logo.vertical_logo.grey(href='./')
+          img(src='/images/logo.png', alt='')
+          br
+          | Medico
+      .col-sm-12.text-center
+        p
+          | Copyright 2015. Medico by 
+          a(href='http://modernwebtemplates.com') MWTemplates
+
+script(src='/js/compressed.js')
+script(src='/js/main.js')
+script(src='/js/switcher.js')
+script(src='/js/profile.js')

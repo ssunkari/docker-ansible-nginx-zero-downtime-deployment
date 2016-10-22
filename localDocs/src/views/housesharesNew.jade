@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  .container
+    .row
+    .col-md-6.col-md-offset-3
+        .login-panel.panel.panel-default
+          .panel-heading
+            h3.panel-title Welcome, #{user}
+            | Let's set up your houseshare, first we'll need your address.
+          |                     
+          .panel-body
+            form(role='form',action="/houseshares/new",method="post")
+              fieldset
+               .row
+                .col-lg-12.col-md-2
+                 .form-group
+                  input.hidden.form-control(name='uid', value='#{uid}' type='text')
+                 .form-group
+                  input.form-control(placeholder='House Number', name='houseNumber', type='Number',required='')
+                .col-lg-12.col-md-2
+                 .form-group
+                  input.form-control(placeholder='Street Address', name='streetAddress', type='text', autofocus='',required='')
+                  input.hidden.form-control(name='user', value='#{user}' type='text')
+               .row
+                .col-lg-6.col-md-6
+                 .form-group
+                   input.form-control(placeholder='PostCode/Zip Code',name='postCode', type='text', autofocus='',required='')
+                .col-lg-6.col-md-6
+                  .form-group
+                   select.form-control(name='countryCode')
+                     option(selected='selected', value='GB') United Kingdom
+                     option(value='AU') Australia
+                     option(value='AT') Austria
+                     option(value='BE') Belgium
+                     option(value='BR') Brazil
+                     option(value='CA') Canada
+                     option(value='CN') China
+                     option(value='CY') Cyprus
+                     option(value='EE') Estonia
+                     option(value='FI') Finland
+                     option(value='FR') France
+                     option(value='DE') Germany
+                     option(value='GR') Greece
+                     option(value='HK') Hong Kong
+                     option(value='IN') India
+                     option(value='IE') Ireland
+                     option(value='IT') Italy
+                     option(value='LV') Latvia
+                     option(value='LB') Lebanon
+                     option(value='LT') Lithuania
+                     option(value='LU') Luxembourg
+                     option(value='MT') Malta
+                     option(value='NG') Nigeria
+                     option(value='NL') Netherlands
+                     option(value='NZ') New Zealand
+                     option(value='PL') Poland
+                     option(value='PT') Portugal
+                     option(value='RU') Russia
+                     option(value='RS') Serbia
+                     option(value='SG') Singapore
+                     option(value='SK') Slovakia
+                     option(value='SI') Slovenia
+                     option(value='ES') Spain
+                     option(value='CH') Switzerland
+                     option(value='TH') Thailand
+                     option(value='TR') Turkey
+                     option(value='US') United States
+                 |   
+                // Change this to a button or input when using this as a form
+                button.btn.btn-lg.btn-success.btn-block(type='submit') Add Houseshare
+  script(src='/dist/js/metisMenu.min.js')
+  script(src='/javascripts/bootstrap.min.js')

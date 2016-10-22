@@ -1,0 +1,253 @@
+include header
+block main
+    #canvas
+      #box_wrapper
+        // template sections
+        section#breadcrumbs.breadcrumbs_section.cs.section_padding_25.gradient.table_section.table_section_md
+          .container
+            .row
+              .col-md-6.text-center.text-md-left
+                h1.thin Members
+              .col-md-6.text-center.text-md-right
+                ol.breadcrumb
+                  li
+                    a(href='/')
+                      span
+                        i.rt-icon2-home
+                  li
+                    a(href='#') Pages
+                  li.active #{user.friendlyName}
+        section#content.ls.section_padding_top_100.section_padding_bottom_75
+          .container
+            .row
+              .col-md-5
+                img(src='images/team/07.jpg', alt='')
+                h1 Dr. #{user.friendlyName}
+                p.highlight Dentist
+                p.social-icons
+                  a.soc-facebook(href='#', title='', data-toggle='tooltip', data-original-title='Facebook') #
+                  a.soc-twitter(href='#', title='', data-toggle='tooltip', data-original-title='Twitter') #
+                  a.soc-google(href='#', title='', data-toggle='tooltip', data-original-title='Google') #
+                .doctors-profile-min-edit-details(style='display:none')
+                  form(role="form" name="expensesSheet", action='/profile/user/#{uid}', method="post",enctype="multipart/form-data")          
+                    .col-lg-4               
+                      .panel.panel-default
+                       .panel-heading
+                        img.img-responsive.img-thumbnail.img-circle(src='/images/user/'+user.imageFileName)        
+                       .panel-body
+                         .form-group
+                          .row
+                           input(type='file', name='Choose Picture')
+                          .row
+                            button.btn.btn-success.btn.btn-lg.btn-block(type='submit') Upload
+                          .row
+                            label.text-danger= error
+                  form(role="form" name="profileSettings", action='/profile/user/#{uid}', method="post")
+                   .col-lg-4
+                    .panel.panel-default
+                      .panel-heading
+                        | Personal Details
+                       .panel-body
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-6
+                                  label Your Name: #{user.friendlyName}
+                                .col-lg-6
+                                  a.fa.fa-edit.friendlyName
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-10
+                                  label Email: #{user}
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-8
+                                  label Phone No: #{user}
+                                .col-lg-4
+                                  a.fa.fa-edit.phone
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-6
+                                  label Password: ******
+                                .col-lg-6
+                                  i.fa.fa-edit
+                        .row 
+                         button.btn.btn-success.btn.btn-lg.btn-block(type='submit') Save
+                   .col-lg-4
+                    .panel.panel-default
+                      .panel-heading
+                        | House share Details
+                       .panel-body
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-6
+                                  label Group Name: #{user}
+                                .col-lg-6
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-6
+                                  label PostCode: #{user}
+                                .col-lg-6
+                        .row
+                          .col-lg-12
+                              .row
+                                .col-lg-6
+                                  label CurrencyCode: #{user}
+                                .col-lg-6
+                                  i.fa.fa-edit
+                .doctors-profile-min-details
+                  ul.list1.no-bullets
+                    li
+                      .media
+                        .media-left
+                          .highlight.size_small
+                            i.rt-icon2-location-outline
+                        .media-body
+                          h4.media-heading Postal Address:
+                          |                                 PO Box 54321 Some str. 765, Los Angeles, California, United States
+                    li
+                      .media
+                        .media-left
+                          .highlight.size_small
+                            i.rt-icon2-phone-outline
+                        .media-body
+                          h4.media-heading Phone:
+                          |                                 +12 345 678 9123
+
+                    li
+                      .media
+                        .media-left
+                          .highlight.size_small
+                            i.rt-icon2-printer2
+                        .media-body
+                          h4.media-heading Fax:
+                          |                                 +65 432 123 4567
+                    li
+                      .media
+                        .media-left
+                          .highlight.size_small
+                            i.rt-icon2-mail2
+                        .media-body
+                          h4.media-heading Email:
+                          |                                 info@mywebsite.com
+                    li
+                      .media
+                        .media-left
+                          .highlight.size_small
+                            i.rt-icon2-globe-outline
+                        .media-body
+                          h4.media-heading Website:
+                          |                                 mywebsite.com
+                  button.btn.btn-info.btn-circle.edit_doctor_profile(type='button')
+                         i.fa.fa-edit
+              .col-md-6.col-md-offset-1
+                h2.entry-title Meet Our Doctor!
+                p.topmargin_20
+                  | Lorem idolorame conseetur sadipscing elitdiam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam ersed diam voluptua vero eoet accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet rem ipsum dolorsit amet
+                  | consetetur sadipscing elitr:
+                ul.list1.darklinks
+                  li
+                    a(href='services.html') Lorem ipsum dolor sit amet
+                  li
+                    a(href='services.html') Sint animi non ut sed
+                  li
+                    a(href='services.html') Eaque blanditiis nemo
+                  li
+                    a(href='services.html') Amet, consectetur adipisicing
+                  li
+                    a(href='services.html') Blanditiis nemo quaerat
+                // Nav tabs
+                ul.nav.nav-tabs.topmargin_40(role='tablist')
+                  li.active
+                    a(href='#tab1', role='tab', data-toggle='tab') Biography
+                  li
+                    a(href='#tab2', role='tab', data-toggle='tab') Skills
+                  li
+                    a(href='#tab3', role='tab', data-toggle='tab') Send Message
+                // Tab panes
+                .tab-content.top-color-border.bottommargin_30
+                  #tab1.tab-pane.fade.in.active
+                    h3.topmargin_0 Biography:
+                    p
+                      | Ut wisi enim ad minim veniaquis nostrud exetation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Dutem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit.
+                    h3 Professional Life:
+                    p
+                      | Dutem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit. Praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                  #tab2.tab-pane.fade
+                    p
+                      strong.grey Skill Name
+                      span.pull-right 90%
+                    .progress
+                      .progress-bar.progress-bar-success(role='progressbar', data-transitiongoal='90')
+                        span 90%
+                    p
+                      strong.grey Skill Name
+                      span.pull-right 100%
+                    .progress
+                      .progress-bar.progress-bar-success(role='progressbar', data-transitiongoal='100')
+                        span 100%
+                    p
+                      strong.grey Skill Name
+                      span.pull-right 75%
+                    .progress
+                      .progress-bar.progress-bar-success(role='progressbar', data-transitiongoal='75')
+                        span 75%
+                    p
+                      strong.grey Skill Name
+                      span.pull-right 95%
+                    .progress
+                      .progress-bar.progress-bar-success(role='progressbar', data-transitiongoal='95')
+                        span 95%
+                  #tab3.tab-pane.fade
+                    form.contact-form(method='post', action='/')
+                      p.contact-form-name
+                        label(for='name')
+                          | Name 
+                          span.required *
+                        input.form-control(type='text', aria-required='true', size='30', value='', name='name', placeholder='Name')
+                      p.contact-form-email
+                        label(for='email')
+                          | Email 
+                          span.required *
+                        input.form-control(type='email', aria-required='true', size='30', value='', name='email', placeholder='Email')
+                      p.contact-form-message
+                        label(for='message') Message
+                        textarea.form-control(aria-required='true', rows='8', cols='45', name='message', placeholder='Message')
+                      p.contact-form-submit.topmargin40
+                        button.theme_button(type='submit', name='contact_submit') Send Message
+                // eof .tab-content
+                p
+                  | Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet rem ipsum dolorsit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt.
+                blockquote
+                  | At vero eos et accusam et justo duo dolores ea rebum sclita kasd gubergren takimata sanctus est lorem ipsum dolor sit amet lorem ipsum dolor sitamet consetetur.
+                  .media
+                    .media-left
+                      img(src='/images/team/03.jpg', alt='')
+                    .media-body
+                      h4.media-heading Patrick Anderson,
+                      |                             Patient
+                p
+                  | Ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        section#subscribe.section_subscribe.cs.gradient.section_padding_50.table_section.table_section_lg
+          .container
+            .row
+              .col-lg-6.text-center.text-lg-left
+                h2.margin_0
+                  span.highlight Subscribe to Our Newsletter
+                  span.thin.grey Be Updated!
+              .col-lg-6.text-center.text-lg-right
+                .widget.widget_mailchimp
+                  form#signup(action='/', method='get')
+                    .form-group.inline-block
+                      input#mailchimp_email.form-control(name='email', type='email', placeholder='Email Address')
+                    button.theme_button.color1(type='submit') Sign Up!
+                    #response
+        include footer
+      // eof #box_wrapper
+    // eof #canvas
+    include preloader_footer

@@ -1,0 +1,750 @@
+include header
+block main
+    #canvas
+      #box_wrapper
+        section
+          .container-fluid
+            .row(style='margin-right: 15%')
+              // Row for location search
+              .col-sm-4(style='max-width:400px;')
+              .col-sm-8
+                // For direction search button
+                form.form-inline(action='', role='search')
+                  .form-group-stylish
+                    input.form-control(type='text', placeholder='Select Location', style='width:190px;')
+                    input.form-control(type='text', placeholder='Doctors,Specialities,Clinics,etc', style='width:369px;')
+                    button.btn.btn-primary(type='submit', style='max-width: 120px;padding:6px 6px;') Search
+            // End row for location search
+            // End Row for Search filters and map
+        // search bar end
+        section#mainslider.ls.mainslider
+          #layerslider(style='width: 1920px; height: 800px;')
+            // slide 1
+            .ls-slide(data-ls='slidedelay: 5500; \
+            transition2d:44')
+              // slide background
+              img.ls-bg(src='images/slide_bg.jpg', alt='Slide background')
+              img.ls-l(src='images/slide_woman.png', alt='', style='top: 0px; left: 800px;', data-ls='offsetxin:100;\
+              durationin:1000;\
+              delayin:300;\
+              transformoriginin: 50% 50% 30%;\
+              easingin:easeOutQuint;\
+              offsetxout:100;\
+              durationout:500;\
+              scalexin:1.3;\
+              scaleyin:1.3;\
+              transformoriginin:25% 25% 0;\
+              scalexout:1.5;\
+              scaleyout:1.5;\
+              ')
+              p.ls-l(style='top: 230px; left: 380px; white-space: nowrap; font-size: 50px; font-weight: 300;', data-ls='offsetxin:-100;\
+              durationin:1200;\
+              delayin:200;\
+              easingin:easeOutExpo;\
+              offsetxout:100;\
+              durationout:500;\
+              rotateyin:60;\
+              transformoriginin:left 50% 0;\
+              ')
+                span.highlight We Care About
+              h3.ls-l(style='top: 290px; left: 380px; white-space: nowrap;', data-ls='offsetxin:-50;\
+              durationin:1200;\
+              delayin:900;\
+              easingin:easeOutExpo;\
+              offsetxout:50;\
+              durationout:500;\
+              rotateyin:60;\
+              transformoriginin:right 50% 0;\
+              ')
+                | Your Health
+              p.ls-l(style='top: 415px; left: 380px; white-space: nowrap;', data-ls='offsetxin:-150;\
+              durationin:1200;\
+              delayin:1400;\
+              easingin:easeOutExpo;\
+              offsetxout:-250;\
+              durationout:500;\
+              rotateyin:-90;\
+              transformoriginin:right 50% 0;\
+              ')
+                span.grey
+                  | Check Out Our Services!
+              p.ls-l(style='top: 460px; left: 375px; white-space: nowrap;', data-ls='offsetxin:0;\
+              durationin:1600;\
+              delayin:2000;\
+              easingin:easeOutElastic;\
+              offsetxout:left;\
+              rotatexin:-90;\
+              transformoriginin:50% top 0;\
+              ')
+                a(href='services.html')
+                  i.fa.fa-ambulance
+                a(href='services.html')
+                  i.fa.fa-user-md
+                a(href='services.html')
+                  i.fa.fa-lightbulb-o
+                a(href='services.html')
+                  i.fa.fa-medkit
+            // slide 2
+            .ls-slide(data-ls='slidedelay: 5500; \
+            transition2d:24')
+              // slide background
+              img.ls-bg(src='images/slide_bg2.png', alt='Slide background')
+              img.ls-l(src='images/slide_man.png', alt='', style='top: 0px; left: 850px;', data-ls='offsetxin:100;\
+              durationin:1000;\
+              delayin:300;\
+              transformoriginin: 50% 50% 30%;\
+              easingin:easeOutQuint;\
+              offsetxout:100;\
+              durationout:500;\
+              scalexin:1.3;\
+              scaleyin:1.3;\
+              transformoriginin:25% 25% 0;\
+              scalexout:1.5;\
+              scaleyout:1.5;\
+              ')
+              p.ls-slide(style='top: 230px; left: 380px; white-space: nowrap; font-size: 50px; font-weight: 300;', data-ls='offsetxin:-100;\
+              durationin:1200;\
+              delayin:200;\
+              easingin:easeOutExpo;\
+              offsetxout:100;\
+              durationout:500;\
+              rotateyin:60;\
+              transformoriginin:left 50% 0;\
+              ')
+                span.highlight Helping You Stay
+              h3.ls-slide(style='top: 290px; left: 372px; white-space: nowrap;', data-ls='offsetxin:-50;\
+              durationin:1200;\
+              delayin:900;\
+              easingin:easeOutExpo;\
+              offsetxout:50;\
+              durationout:500;\
+              rotateyin:60;\
+              transformoriginin:right 50% 0;\
+              ')
+                span.highlight2 Happy One
+              p.ls-slide(style='top: 415px; left: 380px; white-space: nowrap;', data-ls='offsetxin:-150;\
+              durationin:1200;\
+              delayin:1400;\
+              easingin:easeOutExpo;\
+              offsetxout:-250;\
+              durationout:500;\
+              rotateyin:-90;\
+              transformoriginin:right 50% 0;\
+              ')
+                span.grey
+                  | More than 330 physicians, scientists & researchers,
+                  br
+                  |                     perfect for hospitals and clinics
+              .ls-slide(style='top: 490px; left: 375px; white-space: nowrap;', data-ls='offsetxin:0;\
+              durationin:1600;\
+              delayin:2000;\
+              easingin:easeOutElastic;\
+              offsetxout:left;\
+              rotatexin:-90;\
+              transformoriginin:50% top 0;\
+              ')
+                a.theme_button(href='about.html') About Us
+                a.theme_button.color2(href='timetable.html') Timetable
+            // slide 3
+            .ls-slide(data-ls='slidedelay: 5500; \
+            transition3d:28')
+              // slide background
+              img.ls-bg(src='images/slide03.jpg', alt='Slide background')
+              p.ls-slide(style='top: 230px; left: 380px; white-space: nowrap; font-size: 50px; font-weight: 300;', data-ls='offsetxin:-100;\
+              durationin:1200;\
+              delayin:200;\
+              easingin:easeOutExpo;\
+              offsetxout:100;\
+              durationout:500;\
+              rotateyin:60;\
+              transformoriginin:left 50% 0;\
+              ')
+                span.highlight To Live a
+              h3.ls-slide(style='top: 290px; left: 372px; white-space: nowrap;', data-ls='offsetxin:-50;\
+              durationin:1200;\
+              delayin:900;\
+              easingin:easeOutExpo;\
+              offsetxout:50;\
+              durationout:500;\
+              rotateyin:60;\
+              transformoriginin:right 50% 0;\
+              ')
+                | Happy One
+              .ls-slide(style='top: 410px; left: 375px; white-space: nowrap;', data-ls='offsetxin:0;\
+              durationin:1600;\
+              delayin:2000;\
+              easingin:easeOutElastic;\
+              offsetxout:left;\
+              rotatexin:-90;\
+              transformoriginin:50% top 0;\
+              ')
+                a.theme_button.color2(href='about.html') Make Appointment
+        section#mainteasers.cs.section_padding_0.columns_padding_0.table_section.table_section_lg
+          .container-fluid
+            .row
+              .col-lg-4.bg_teaser.after_cover.color_bg_1
+                img(src='images/teaser01.jpg', alt='')
+                .teaser_content.media
+                  .media-left
+                    h4.grey.media-heading Doctor
+                    h3 Visit
+                  .media-body
+                    form#order_form.order-form
+                      .form-group
+                        label(for='fullname') Full Name
+                        input#fullname.form-control(type='text', placeholder='Full Name')
+                      .form-group
+                        label(for='department') Full Name
+                        select#department.form-control(name='department')
+                          option Cardiology
+                          option Pharmacy
+                          option Physiotherapy
+                      .form-group
+                        label(for='phone') Phone
+                        input#phone.form-control(type='text', placeholder='Phone')
+                      button.theme_button(type='submit') Make An Order
+              .col-lg-4.bg_teaser.after_cover.color_bg_2
+                img(src='images/teaser02.jpg', alt='')
+                .teaser_content.media
+                  .media-left
+                    h4.grey.media-heading Patient
+                    h3 Review
+                    // testimonials indicators
+                    .topmargin_30
+                      a.testimonials-control(href='#carousel-media', role='button', data-slide='prev')
+                        i.arrow-icon-left-open-big
+                      a.testimonials-control(href='#carousel-media', role='button', data-slide='next')
+                        i.arrow-icon-right-open-big
+                  .media-body
+                    #carousel-media.carousel.slide.testimonials-carousel(data-ride='carousel')
+                      // Indicators
+                      ol.carousel-indicators
+                        li.active(data-target='#carousel-media', data-slide-to='0')
+                        li(data-target='#carousel-media', data-slide-to='1')
+                        li(data-target='#carousel-media', data-slide-to='2')
+                      // Wrapper for slides
+                      .carousel-inner
+                        .item.active
+                          p
+                            | Ullamco laboris nialiquid exea commodi consat. Ut enim minim veniam norud exotation.
+                          .media
+                            a.media-left(href='#')
+                              img.media-object(src='images/team/01.jpg', alt='')
+                            .media-body
+                              h4 Jhon Smith
+                              p
+                                | Google Inc.
+                        .item
+                          p
+                            | Ullamco laboris nialiquid exea commodi consat. Ut enim minim veniam norud exotation.
+                          .media
+                            a.media-left(href='#')
+                              img.media-object(src='images/team/02.jpg', alt='')
+                            .media-body
+                              h4 Michael Anderson
+                              p
+                                | Google Inc.
+                        .item
+                          p
+                            | Ullamco laboris nialiquid exea commodi consat. Ut enim minim veniam norud exotation.
+                          .media
+                            a.media-left(href='#')
+                              img.media-object(src='images/team/03.jpg', alt='')
+                            .media-body
+                              h4 Michael Anderson
+                              p
+                                | Google Inc.
+                    // eof #carousel-media
+              .col-lg-4.bg_teaser.after_cover.color_bg_3
+                img(src='images/teaser03.jpg', alt='')
+                .teaser_content.media
+                  .media-left
+                    h4.grey.media-heading Working
+                    h3 Hours
+                  .media-body
+                    .widget_schedule
+                      ul.list1.no-bullets
+                        li
+                          | Monday-Friday
+                          strong.pull-right 09:00 - 20:00
+                        li
+                          | Saturday
+                          strong.pull-right 10:00 - 18:00
+                        li
+                          | Sunday
+                          strong.pull-right Closed
+        section.ls.section_padding_50
+          .container
+            .row
+              .col-sm-12.text-center.to_animate(data-animation='fadeInDown')
+                h2.section_header Welcome to Medico!
+                p
+                  | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.
+                div
+                  a.theme_button.inverse(href='blog-right.html') Go To Blog
+        section.ls.ms.section_padding_75
+          .container
+            .row
+              .col-sm-12
+                .owl-carousel(data-dots='true')
+                  .item
+                    .thumbnail
+                      img(src='images/team/01.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+                  .item
+                    .thumbnail
+                      img(src='images/team/02.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+                  .item
+                    .thumbnail
+                      img(src='images/team/03.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+                  .item
+                    .thumbnail
+                      img(src='images/team/04.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+                  .item
+                    .thumbnail
+                      img(src='images/team/05.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+                  .item
+                    .thumbnail
+                      img(src='images/team/06.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+                  .item
+                    .thumbnail
+                      img(src='images/team/07.jpg', alt='')
+                      .caption
+                        h3
+                          a(href='team-single.html') Michael Bean
+                        p Director
+                        p.text-center.social-icons
+                          a.soc-facebook(href='#', title='Facebook', data-toggle='tooltip') #
+                          a.soc-twitter(href='#', title='Twitter', data-toggle='tooltip') #
+                          a.soc-google(href='#', title='Google', data-toggle='tooltip') #
+                  // eof item
+        section#featured.cs.parallax.section_padding_bottom_0.section_padding_top_100
+          .container
+            .row
+              .col-md-8.col-md-push-4
+                h2.section_header.grey
+                  | Why Choose Us?
+                p
+                  | At vero eos et accusam et justo duo dolores et ea rebum stet clita.v
+                .row
+                  .col-lg-6
+                    .teaser.media.to_animate(data-animation='pullDown')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.fa.fa-hospital-o
+                      .media-body
+                        h3.media-heading
+                          a(href='about.html') Modern Clinic
+                        p Consetetur sadipscing elitr sed diam nonumy.
+                    .teaser.media.to_animate(data-animation='pullDown')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.fa.fa-user-md
+                      .media-body
+                        h3.media-heading
+                          a(href='about.html') Qualified Doctors
+                        p Eirmod tempor invidunt ut labore et dolore magna.
+                  .col-lg-6
+                    .teaser.media.to_animate(data-animation='pullDown')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.fa.fa-ambulance
+                      .media-body
+                        h3.media-heading
+                          a(href='about.html') Emergency
+                        p Aliquam sed diam voluptua vero eoset.
+                    .teaser.media.to_animate(data-animation='pullDown')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.fa.fa-medkit
+                      .media-body
+                        h3.media-heading
+                          a(href='about.html') Health Care
+                        p Stet clita kasd gubergren no sea takimata.
+              .col-md-4.col-md-pull-8.text-center.to_animate(data-animation='fadeInLeft')
+                img#featured-person.top-overlap(src='images/girl.png', alt='')
+        section#about.ls.section_padding_100.columns_padding_25
+          .container
+            .row
+              .col-md-4
+                h2.widget-title Departments
+                #accordion.panel-group
+                  .panel.panel-default
+                    .panel-heading
+                      h4.panel-title
+                        a(data-toggle='collapse', data-parent='#accordion', href='#collapse1')
+                          | Psychiatry Department
+                    #collapse1.panel-collapse.collapse.in
+                      .panel-body
+                        .media
+                          .media-left
+                            a(href='#')
+                              img(src='images/recent_post1.jpg', alt='')
+                          .media-body
+                            | Consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                  .panel.panel-default
+                    .panel-heading
+                      h4.panel-title
+                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapse2')
+                          | Pediatrics
+                    #collapse2.panel-collapse.collapse
+                      .panel-body
+                        .media
+                          .media-left
+                            a(href='#')
+                              img(src='images/recent_post2.jpg', alt='')
+                          .media-body
+                            | Consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                  .panel.panel-default
+                    .panel-heading
+                      h4.panel-title
+                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapse3')
+                          | Dental Clinic
+                    #collapse3.panel-collapse.collapse
+                      .panel-body
+                        .media
+                          .media-left
+                            a(href='#')
+                              img(src='images/recent_post1.jpg', alt='')
+                          .media-body
+                            | Consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                  .panel.panel-default
+                    .panel-heading
+                      h4.panel-title
+                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapse4')
+                          | Cardiology
+                    #collapse4.panel-collapse.collapse
+                      .panel-body
+                        .media
+                          .media-left
+                            a(href='#')
+                              img(src='images/recent_post2.jpg', alt='')
+                          .media-body
+                            | Consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                  .panel.panel-default
+                    .panel-heading
+                      h4.panel-title
+                        a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapse5')
+                          | Outpatient Surgery
+                    #collapse5.panel-collapse.collapse
+                      .panel-body
+                        .media
+                          .media-left
+                            a(href='#')
+                              img(src='images/recent_post1.jpg', alt='')
+                          .media-body
+                            | Consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+              .col-md-4
+                h2.widget-title Services
+                p
+                  | Duis autem veiudolorn hendrerit vulputate velit esse molestie. consequat, vel illum dolore eu feugiat nulla facilisis at vereros accumsan etiusto dignissim:
+                ul.list1.darklinks
+                  li
+                    a(href='services.html') Lorem ipsum dolor sit amet
+                  li
+                    a(href='services.html') Sint animi non ut sed
+                  li
+                    a(href='services.html') Eaque blanditiis nemo
+                  li
+                    a(href='services.html') Amet, consectetur adipisicing
+                  li
+                    a(href='services.html') Blanditiis nemo quaerat
+              .col-md-4
+                h2.widget-title Advantages
+                // Nav tabs
+                ul.nav.nav-tabs(role='tablist')
+                  li.active
+                    a(href='#tab1', role='tab', data-toggle='tab') Quality
+                  li
+                    a(href='#tab2', role='tab', data-toggle='tab') Comfort
+                  li
+                    a(href='#tab3', role='tab', data-toggle='tab') Results
+                // Tab panes
+                .tab-content
+                  #tab1.tab-pane.fade.in.active
+                    p.featured-tab-image
+                      img(src='images/gallery/01.jpg', alt='')
+                    |                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi minus tenetur sunt aspernatur vitae, corporis nostrum quibusdam molestias, laudantium quia in a natus facilis beatae culpa inventore quidem illo atque.
+                  #tab2.tab-pane.fade
+                    p.featured-tab-image
+                      img(src='images/gallery/02.jpg', alt='')
+                    |                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, enim saepe libero iure tenetur optio nisi aliquam molestias ratione magnam ab ut quod possimus hic suscipit doloremque, deleniti ipsa quia!
+                  #tab3.tab-pane.fade
+                    p.featured-tab-image
+                      img(src='images/gallery/03.jpg', alt='')
+                    |                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis est, dolores, ex ducimus cumque iusto ipsam odit voluptatum autem error impedit obcaecati quisquam molestiae, optio porro inventore nostrum deleniti cupiditate.
+        section.ls.ms.section_padding_50.table_section
+          .container
+            .row.text-xs-center
+              .col-sm-9.to_animate(data-animation='pullDown')
+                h2.margin_0
+                  span.highlight Like this theme?
+                  span.thin Get your copy of this great theme now!
+              .col-sm-3.to_animate.text-right.text-xs-center(data-animation='pullDown')
+                a.theme_button.inverse(href='#') Purchase
+        section#photos.ls
+          #photo-carousel.owl-carousel(data-margin='0', data-center='true', data-nav='true', data-loop='true', data-items='3')
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/01.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/01.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/02.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/02.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/03.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/03.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/04.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/04.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/05.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/05.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/06.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/06.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/07.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/07.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/08.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/08.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+            .gallery-item
+              .gallery-image
+                img(src='images/gallery/09.jpg', alt='')
+                .gallery-image-links
+                  a.p-view.prettyPhoto(title='', data-gal='prettyPhoto[gal]', href='images/gallery/09.jpg')
+                  a.p-link(title='', href='gallery-single.html')
+              .gallery-item-description
+                h3 Lorem Ipsum Dolor
+                p.gallery-meta
+                  a(href='gallery-single.html') Dental
+                  | , 
+                  a(href='gallery-single.html') Surgery
+        section.ls.section_padding_bottom_75.section_padding_top_100
+          .container
+            .row
+              .col-sm-4.to_animate(data-animation='fadeInLeft')
+                h2.section_header
+                  strong
+                    | Make
+                    br
+                    span.highlight Best Website
+                    br
+                    |                         Right Now!
+                p
+                  | Lorem ipsum dolor sit amet consetetur sadipscing elitr, sediam nonumy.
+                p
+                  a.theme_button.inverse(href='services.html') Check Features
+              .col-sm-8
+                p
+                  img.to_animate(src='images/ipad.png', alt='', data-animation='fadeInRight')
+                p.divider_40.to_animate(data-animation='fadeInRight')
+                  | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam justo duo dolores eit ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr:
+                .row
+                  .col-lg-6
+                    .teaser.media.to_animate(data-animation='fadeIn')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.rt-icon2-device-tablet
+                      .media-body.media-middle
+                        h3.media-heading
+                          a(href='about.html') Fully Responsive
+                        p Awesome on all devices
+                  .col-lg-6
+                    .teaser.media.to_animate(data-animation='fadeIn')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.rt-icon2-brush
+                      .media-body.media-middle
+                        h3.media-heading
+                          a(href='about.html') Color Schemes
+                        p Several accent color schemes
+                  .col-lg-6
+                    .teaser.media.to_animate(data-animation='fadeIn')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.rt-icon2-messages
+                      .media-body.media-middle
+                        h3.media-heading
+                          a(href='about.html') 24/7 Support
+                        p Contact us via Skype or phone
+                  .col-lg-6
+                    .teaser.media.to_animate(data-animation='fadeIn')
+                      .media-left
+                        .teaser_icon.highlight.main_bg_color.size_small.round
+                          i.rt-icon2-lightbulb
+                      .media-body.media-middle
+                        h3.media-heading
+                          a(href='about.html') Several Homepages
+                        p Medican center and Veterinary
+        section.section_subscribe.ls.parallax.section_padding_50
+          .container
+            .row
+              .col-sm-12.text-center.to_animate(data-animation='pullUp')
+                h3.topmargin_0 Subscribe to
+                h2.section_header
+                  span.highlight Newsletter
+                .widget.widget_mailchimp
+                  form#signup(action='/', method='get')
+                    .form-group
+                      input#mailchimp_email.form-control.text-center(name='email', type='email', placeholder='Email Address')
+                    button.theme_button.topmargin_20(type='submit') Sign Up!
+                    #response
+        section#progress.cs.main_color2.section_padding_50.parallax
+          .container-fluid
+            .row
+              .col-md-3.col-sm-6
+                .teaser.text-center
+                  .teaser_icon.grey.size_normal
+                    i.fa.fa-user-md
+                  h3.counter.highlight(data-from='0', data-to='540', data-speed='1800') 0
+                  p Doctors
+              .col-md-3.col-sm-6
+                .teaser.text-center
+                  .teaser_icon.grey.size_normal
+                    i.fa.fa-thumbs-o-up
+                  h3.counter.highlight(data-from='0', data-to='4350', data-speed='2100') 0
+                  p Patients
+              .col-md-3.col-sm-6
+                .teaser.text-center
+                  .teaser_icon.grey.size_normal
+                    i.fa.fa-hospital-o
+                  h3.counter.highlight(data-from='0', data-to='256', data-speed='1400') 0
+                  p Rooms
+              .col-md-3.col-sm-6
+                .teaser.text-center
+                  .teaser_icon.grey.size_normal
+                    i.fa.fa-trophy
+                  h3.highlight.counter-wrap
+                    span.counter(data-from='0', data-to='10', data-speed='1500') 0
+                    span.counter-add +
+                  p Saved
+        include footer
+      // eof #box_wrapper
+    // eof #canvas
+    include preloader_footer

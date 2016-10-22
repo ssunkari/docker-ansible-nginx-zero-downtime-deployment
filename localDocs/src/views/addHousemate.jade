@@ -1,0 +1,56 @@
+extends custom
+
+block content
+    link(href="/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css", rel="stylesheet")
+    link(href="/datatables-responsive/css/responsive.dataTables.css", rel="stylesheet")
+    // Page Content
+    #page-wrapper
+     .row
+      .col-xs-12.col-md-12
+       h1.page-header Add Housemate
+        // /.col-lg-12
+     .row
+      .col-xs-12.col-md-6        
+        .panel-heading
+            h3.panel-title Current Users
+        .panel-body
+           ul.list-unstyled
+            each housemate in user.houseshare.currentUsers
+              li 
+                button.btn.btn-primary.btn-lg(type='button')
+                  i.fa.fa-user  #{housemate.friendlyName}
+        |                    
+      .col-xs-12.col-md-6
+        .row
+          .panel-heading
+              h3.panel-title Invite Housemate
+          .panel-body
+            .col-xs-12.col-md-3
+              input.form-control(placeholder='Email Address', id='participant_email',name='email', type='username', autofocus='',required='')           
+            .col-xs-12.col-md-3
+               button.btn.btn-primary.btn#addUser(type='button')
+                  i.fa.fa-send | Add
+        .row
+          .col-xs-12.col-md-6
+            .panel-body.errors       
+    script.
+      $(document).ready(function(){
+        function isValidEmailAddress(emailAddress) {
+            var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+            // alert( pattern.test(emailAddress) );
+            return pattern.test(emailAddress);
+        };
+        $('#addUser').click(function(){
+          $('.panel-body.errors').empty();
+            if($('input#participant_email').val() === undefined || $('#participant_email').val() === '' || !isValidEmailAddress($('input#participant_email').val()))
+            {
+               $('.panel-body.errors').append('<p class="text-danger"> User Email address is Invalid </p>')
+            }
+            else
+            {
+               $.get('/houseshares/sendInvite?uid='+$('#participant_email').val(), function(data){
+                  $('.panel-body.errors').append('<p class="text-danger"> '+data+'</p>')
+                });
+            }
+        });
+      });

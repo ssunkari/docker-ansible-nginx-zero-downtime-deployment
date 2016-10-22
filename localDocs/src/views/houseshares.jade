@@ -1,0 +1,79 @@
+extends custom
+
+block content
+    link(href="/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css", rel="stylesheet")
+    link(href="/datatables-responsive/css/responsive.dataTables.css", rel="stylesheet")
+    // Page Content
+    #page-wrapper
+     .row
+      .col-lg-12
+       h1.page-header Cost Share Summary
+        // /.col-lg-12
+     .row
+      .col-lg-12
+       .pane.panel-default
+        .panel-heading
+          .row
+              form(role="form" name="expensesSheet", action='/expenses/houseshares?user=#{user}', method="get")    
+                .col-lg-1
+                  .form-group
+                    label From
+                .col-lg-2
+                  .form-group
+                    input.form-control#datepicker(type='date', name='startDate', required='')
+                    input.form-control#datepicker(type='hidden', name='user', value='#{user}')
+                    input.form-control#datepicker(type='hidden', name='type', value='#{type}')
+                .col-lg-1
+                  .form-group
+                    label To
+                .col-lg-2
+                  .form-group
+                    input.form-control#datepicker(type='date', name='endDate', required='')
+                .col-lg-2
+                  .form-group
+                     button.btn.btn-primary.btn-small(type='submit') View
+        .panel-body
+         .dataTable_wrapper
+          table#dataTables-example.table.table-striped.table-bordered.table-hover(width='100%')
+           thead
+            tr
+              th Date 
+              |                                             
+              th Who Paid?
+              |                                             
+              th Category
+              th What was it?
+              |                                             
+              th Amount
+              |                                             
+              th Your Share
+             tbody
+              - var i=0
+              each item in result                
+                each expenses in item.expenses
+                  - i++;
+                  tr(id=('rid_'+i)).odd.gradeX
+                    td= item.purchaseDate
+                    |                                             
+                    td= item.tenantName
+                    |                                             
+                    td= expenses.utilType
+                    td= (item.costName ? item.costName: '')
+                    |                                             
+                    td.center= '£'+expenses.amount
+                    |                                             
+                    td.center= '£'+expenses.shared
+                     if type !== 'all'
+                      td.center.button.btn.btn-warning.btn-square(type='button', name="deleteBtn#{item.expenses.indexOf(expenses)}" onclick='onDelete(rid_'+i+')')
+                              i.fa.fa-times
+
+    script(src='/datatables/media/js/jquery.dataTables.min.js')
+    script(src='/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')
+    script(src='/datatables-responsive/js/dataTables.responsive.js')
+    script.
+      $(document).ready(function() {
+
+        $('#dataTables-example').DataTable({
+        responsive: true
+        });
+      });

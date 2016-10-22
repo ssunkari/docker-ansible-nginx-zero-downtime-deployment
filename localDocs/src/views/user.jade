@@ -1,0 +1,224 @@
+extends custom
+
+block content
+     // Page Content
+     #page-wrapper
+     
+        .row
+         .col-lg-12
+           h1.page-header Your Account
+           // /.col-lg-12
+        .row
+            form(role="form" name="expensesSheet", action='/profile/user/#{uid}', method="post",enctype="multipart/form-data")          
+              .col-lg-4               
+                .panel.panel-default
+                 .panel-heading
+                  img.img-responsive.img-thumbnail.img-circle(src='/images/user/'+user.imageFileName)        
+                 .panel-body
+                   .form-group
+                    .row
+                     input(type='file', name='Choose Picture')
+                    .row
+                      button.btn.btn-success.btn.btn-lg.btn-block(type='submit') Upload
+                    .row
+                      label.text-danger= error
+            form(role="form" name="profileSettings", action='/profile/user/#{uid}', method="post")
+             .col-lg-4
+              .panel.panel-default
+                .panel-heading
+                  | Personal Details
+                 .panel-body
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-6
+                            label Your Name: #{user.friendlyName}
+                          .col-lg-6
+                            a.fa.fa-edit.friendlyName
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-10
+                            label Email: #{user.username}
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-8
+                            label Phone No: #{user.phone}
+                          .col-lg-4
+                            a.fa.fa-edit.phone
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-6
+                            label Password: ******
+                          .col-lg-6
+                            i.fa.fa-edit
+                  .row 
+                   button.btn.btn-success.btn.btn-lg.btn-block(type='submit') Save
+             .col-lg-4
+              .panel.panel-default
+                .panel-heading
+                  | House share Details
+                 .panel-body
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-6
+                            label Group Name: #{user.houseshare.friendlyName}
+                          .col-lg-6
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-6
+                            label PostCode: #{user.houseshare.postCode}
+                          .col-lg-6
+                  .row
+                    .col-lg-12
+                        .row
+                          .col-lg-6
+                            label CurrencyCode: #{user.houseshare.currencyCode}
+                          .col-lg-6
+                            i.fa.fa-edit
+            
+
+        .row
+          .col-lg-12
+          .panel.panel-default
+            .panel-heading
+              i.fa.fa-bell.fa-fw
+              | Notifications Panel
+            // .panel-heading
+            .panel-body
+              #accordion.panel-group
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne') Groups And Friends
+                  #collapseOne.panel-collapse.collapse.in
+                    .panel-body
+                     .row
+                      .col-lg-8
+                          .row
+                            .col-lg-6
+                              label When someone adds to a group
+                            .col-lg-2
+                              dl.dl-horizontal
+                                dt 
+                                  i.fa.fa-envelope
+                                dd
+                                  i.fa.fa-mobile-phone
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo') Bills
+                  #collapseTwo.panel-collapse.collapse
+                    .panel-body
+                     .row
+                      .col-lg-8
+                        .row
+                          .col-lg-6
+                            label When a bill is added
+                          .col-lg-2
+                            dl.dl-horizontal
+                              dt 
+                                i.fa.fa-envelope
+                              dd
+                                i.fa.fa-mobile-phone
+                     .row
+                      .col-lg-8
+                        .row
+                          .col-lg-6
+                            label When a bill is edited/deleted
+                          .col-lg-2
+                            dl.dl-horizontal
+                              dt 
+                                i.fa.fa-envelope
+                              dd
+                                i.fa.fa-mobile-phone
+                     .row
+                      .col-lg-8
+                        .row
+                          .col-lg-6
+                            label When someone comments on a bill
+                          .col-lg-2
+                            dl.dl-horizontal
+                              dt 
+                                i.fa.fa-envelope
+                              dd
+                                i.fa.fa-mobile-phone
+                     .row
+                      .col-lg-8
+                        .row
+                          .col-lg-6
+                            label When a bill is due
+                          .col-lg-2
+                            dl.dl-horizontal
+                              dt 
+                                i.fa.fa-envelope
+                              dd
+                                i.fa.fa-mobile-phone
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree') Insights
+                  #collapseThree.panel-collapse.collapse
+                    .panel-body
+                     .row
+                      .col-lg-8
+                        .row
+                          .col-lg-6
+                            label Monthly summary of my activity
+                          .col-lg-2
+                            dl.dl-horizontal
+                              dt 
+                                i.fa.fa-envelope
+                              dd
+                                i.fa.fa-mobile-phone
+                     .row
+                      .col-lg-8
+                        .row
+                          .col-lg-6
+                            label Major Splitwise news and updates
+                          .col-lg-2
+                            dl.dl-horizontal
+                              dt 
+                                i.fa.fa-envelope
+                              dd
+                                i.fa.fa-mobile-phone
+            // .panel-body
+          // /.panel
+          // /.col-lg-12
+              // Button trigger modal
+          //- button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal')
+          //- i.fa.fa-edit(data-toggle='modal', data-target='#myModal')
+          //- // Modal
+          //- #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+          //-   form(role="form" name="profileSettings", action='/profile/user/#{uid}', method="post")
+          //-     .modal-dialog(role='document')
+          //-       .modal-content
+          //-         .modal-header
+          //-           button.close(type='button', data-dismiss='modal', aria-label='Close')
+          //-             span(aria-hidden='true') ×
+          //-           h4#myModalLabel.modal-title Personal Settings
+          //-         .modal-body
+          //-           label Set Phone Number 
+          //-             input(type='text', name='phone', required='',autofocus='')
+          //-         .modal-footer
+          //-           button.btn.btn-default(type='button', data-dismiss='modal') Close
+          //-           button.btn.btn-primary(type='submit') Save changes
+          script.
+            $(document).ready(function() {
+                $("a.fa.fa-edit.phone").click(function(event) {
+                var grandParent = $(this).parent().parent();
+                $(this).parent().parent().children().remove();
+                $(grandParent).append('<div class="col-lg-6"><label>Phone No </label></div>'+
+                '<div class="col-lg-6"><input type="text" name="phone"/></div>');
+                });
+                $("a.fa.fa-edit.friendlyName").click(function(event) {
+                var grandParent = $(this).parent().parent();
+                $(this).parent().parent().children().remove();
+                $(grandParent).append('<div class="col-lg-6"><label>Your Name:</label></div>'+
+                '<div class="col-lg-6"><input type="text" name="friendlyName"/></div>');
+                });
+            });

@@ -1,0 +1,209 @@
+extends layout
+
+block content
+    #canvas
+        #box_wrapper
+            // template sections
+            section.page_topline.ls.ms.section_padding_0.table_section.table_section_md
+            .container
+                .row
+                  .col-md-3.text-center.text-md-left
+                    .page_social_icons
+                      a.soc-facebook(href='#', title='Facebook') #
+                      a.soc-twitter(href='#', title='Twitter') #
+                      a.soc-google(href='#', title='Google') #
+                      a.soc-linkedin(href='#', title='LinkedIn') #
+                      a.soc-dribbble(href='#', title='Dribble') #
+                  |             
+                  .col-md-9.text-center.text-md-right
+                    span
+                      i.rt-icon2-pin-alt.highlight
+                      |  4321 Your Address, Country
+                    |                 
+                    span
+                      i.rt-icon2-newspaper-alt.highlight
+                      |  8 (800) 695-2684
+                    |                 
+                    span
+                      i.rt-icon2-envelope.highlight
+                      |  support@company.com
+            header.page_header.header_white
+                .container
+                    .row
+                      .col-lg-3.col-md-4.col-xs-12
+                        a.logo.top_logo(href='./')
+                          img(src='/images/logo.png', alt='')
+                          | &#x9;&#x9;            Medico
+                        // header toggler
+                        span.toggle_menu
+                          span
+                      | &#x9;&#x9;&#x9;
+                      .col-lg-9.col-md-8.text-right
+                        // main nav start
+                        nav.mainmenu_wrapper
+                          ul.mainmenu.nav.sf-menu
+                            li.active
+                              a(href='/') Home
+                              //- |                             
+                              //- ul
+                              //-   li
+                              //-     a(href='index.html') Mexco
+                            //- // pages
+                            //- li
+                            //-   a(href='about.html') Pages
+                            //-   |                             
+                            //-   ul
+                            //-     // about
+                            //-     li
+                            //-       a(href='about.html') About
+                            //-       |                                     
+                            //-       ul
+                            //-         li
+                            //-           a(href='about.html') About 1
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='about2.html') About 2
+                            //-     // eof about
+                            //-     // staff
+                            //-     li
+                            //-       a(href='staff.html') Staff
+                            //-       |                                     
+                            //-       ul
+                            //-         li
+                            //-           a(href='staff.html') Staff 1
+                            //-           |                                             
+                            //-           ul
+                            //-             li
+                            //-               a(href='staff.html') 2 columns
+                            //-             |                                                 
+                            //-             li
+                            //-               a(href='staff-3-cols.html') 3 columns
+                            //-             |                                                 
+                            //-             li
+                            //-               a(href='staff-4-cols.html') 4 columns
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='staff2.html') Staff 2
+                            //-           |                                             
+                            //-           ul
+                            //-             li
+                            //-               a(href='staff2.html') 1 column
+                            //-             |                                                 
+                            //-             li
+                            //-               a(href='staff2-2-cols.html') 2 columns
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='team-single.html') Member
+                            //-           |                                             
+                            //-           ul
+                            //-             li
+                            //-               a(href='team-single.html') Member 1
+                            //-             |                                                 
+                            //-             li
+                            //-               a(href='team-single2.html') Member 2
+                            //-     // eof staff
+                            //-     // events
+                            //-     li
+                            //-       a(href='events-left.html') Events
+                            //-       |                                     
+                            //-       ul
+                            //-         li
+                            //-           a(href='events-left.html') Left Sidebar
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='events-right.html') Right Sidebar
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='events-full.html') Full Width
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='event-single-left.html') Single Event
+                            //-           |                                             
+                            //-           ul
+                            //-             li
+                            //-               a(href='event-single-left.html') Left Sidebar
+                            //-             |                                                 
+                            //-             li
+                            //-               a(href='event-single-right.html') Right Sidebar
+                            //-             |                                                 
+                            //-             li
+                            //-               a(href='event-single-full.html') Full Width
+                            //-     // eof events
+                            //-     // services
+                            //-     li
+                            //-       a(href='services.html') Services
+                            //-       |                                     
+                            //-       ul
+                            //-         li
+                            //-           a(href='services.html') Services 1
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='services2.html') Services 2
+                            //-     // eof services
+                            //-     li
+                            //-       a(href='departments.html') Departments
+                            //-     |                                 
+                            //-     li
+                            //-       a(href='timetable.html') Timetable
+                            //-     |                                 
+                            //-     li
+                            //-       a(href='pricing.html') Pricing
+                            //-     |                                 
+                            //-     li
+                            //-       a(href='faq.html') FAQs
+                            //-     |                                 
+                            //-     li
+                            //-       a(href='testimonials.html') Testimonials
+                            //-     // 404
+                            //-     li
+                            //-       a(href='404.html') 404
+                            //-       |                                     
+                            //-       ul
+                            //-         li
+                            //-           a(href='404.html') 404 1
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='4042.html') 404 2
+                            //-     // eof 404
+                            //-     // comingsoon
+                            //-     li
+                            //-       a(href='comingsoon.html') Coming Soon
+                            //-       |                                     
+                            //-       ul
+                            //-         li
+                            //-           a(href='comingsoon.html') Coming Soon 1
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='comingsoon2.html') Coming Soon 2
+                            //-         |                                         
+                            //-         li
+                            //-           a(href='comingsoon3.html') Coming Soon 3
+                            //-     // eof comingsoon
+                            //- // eof pages
+                            li
+                              a(href='#about') About Us
+                            li
+                              a(href='#contact') Contact
+                            // shop
+                            if uid
+                                li
+                                  a(href='logout') Signout
+                            else
+                                li
+                                  a(href='login') Login/Register
+                                // eof shop
+                            //- li
+                            //-   a(href='contact.html') Contact
+                            //-   |                             
+                            //-   ul
+                            //-     li
+                            //-       a(href='contact.html') Contact 1
+                            //-     |                                 
+                            //-     li
+                            //-       a(href='contact2.html') Contact 2
+                            //-     |                                 
+                            //-     li
+                            //-       a(href='contact3.html') Contact 3
+                        // eof main nav
+            // header done
+            block main

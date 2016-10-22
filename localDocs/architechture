@@ -1,0 +1,92 @@
+username:sr.sunkari@gmail.com
+key:9e1e2d2473
+pass:123
+
+Use Hmset
+Key:://sr.sunkari@gmail.com
+user =
+{
+	id :123,
+	friendlyName:'Srinu',
+	password:'pass'
+	iconUrl:'img',
+	activated: true,
+	houseshareSetup:true,
+	imageFileName:'url',
+	houseshareKey:'HS:Key',
+	phone:
+	fixedRent: true,
+	fixedBills:true
+	roomId:roomId
+}
+
+Notifications:
+Key:: SMS:NTF:userKey:HSKey
+{
+	addToGroup: true,
+	addBill:true,
+	editBill:true,
+	commentOnBill:true,
+	dueBills:true,
+	monthlySummary:true,
+	otherNotifications:true
+}
+Key:: Email:NTF:userKey:HSKey
+{
+	addToGroup: true,
+	addBill:true,
+	editBill:true,
+	commentOnBill:true,
+	dueBills:true,
+	monthlySummary:true,
+	otherNotifications:true
+}
+
+//HouseTenancyPerUser
+Key:: UHS:userkey:uk:m145hd::314-a
+{
+startDate:''
+	
+}
+
+userKey For House Setup
+key -- HS:Cuk:Pm145hd::H314-a
+house =
+{
+	id : 'abcd',
+	friendName: '35 Stanley'
+	fixedRent: true,
+	totalAmount:500
+	currencyCode:pound
+}
+
+RoomType
+Category::uk::m145hd::314-a
+{
+	FriendlyName: 'ChocRoom',
+	rent:250,
+	bills:250
+}
+
+ForHouseMates: Use Sets
+key:: housemates::uk::m145hd::314-a
+value:: [userkeys]
+
+ForRoomTypes: Use Sets
+key:: roomTypes::uk::m145hd::314-a
+value:: [userkeys]
+
+Utilities Categories: Use Sets
+utilTypes:uk::m145hd:314-a
+['gas', 'electric', 'water']
+
+//Key for submissions 
+houseKey::userKey::date::category
+{
+	lastmodified:''
+	selectedDate:date,	
+	id:123,
+	category: 'gas',
+	costName: 'Costname',
+	amount: 150	
+}

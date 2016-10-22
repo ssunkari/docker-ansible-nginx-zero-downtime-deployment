@@ -1,0 +1,40 @@
+extends custom
+
+block content
+     // Page Content
+     #page-wrapper
+      .row
+       .col-lg-12
+         h1.page-header Add a bill
+         // /.col-lg-12
+      .row
+       .col-lg-12
+        .panel.panel-default
+         .panel-heading
+          | Please submit your expenses before last day of every month
+         .panel-body
+          .row
+           .col-lg-6
+            form(role="form" name="expensesSheet", action='/bills?uid=#{uid}', method="post")
+             .form-group
+              label Pick A Date
+              input.form-control#datepicker(type='date', name='selectedDay', required='')
+              p.help-block You shall only submit total amount of individual utility for the day.
+             .form-group
+              label Select Utility Category
+              select.form-control(name='utilType')
+                option Other
+                each utilType in user.houseshareUtilTypes
+                  option= utilType
+             .form-group
+              label Cost Name
+              input.form-control(type='text', name='costName', placeholder='Enter a Description')
+             .form-group.input-group
+              span.input-group-addon
+                  i.fa.fa-gbp
+              input.form-control(type='text', name='amount', required='',placeholder='Enter Amount')
+
+             .form-group
+              button.btn.btn-primary.btn-lg(type='submit') Submit
+              label.text-success
+               p=message
