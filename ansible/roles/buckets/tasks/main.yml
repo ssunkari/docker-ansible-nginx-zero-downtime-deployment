@@ -1,0 +1,15 @@
+---
+
+- name: "Copy bucket data query script"
+  sudo: yes
+  copy:
+    src: "bucket_data.py"
+    dest: "/usr/local/bin/bucket_data.py"
+    mode: 0755
+    owner: "root"
+    group: "root"
+
+- name: "Configure bucket {{item.name}}"
+  include: bucket.yml
+  with_items: "{{couch_buckets}}"
+

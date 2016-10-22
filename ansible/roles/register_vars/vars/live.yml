@@ -1,0 +1,9 @@
+couch_env_specific:
+  admin: "Administrator"
+  password: "January16"
+  nodes:  1 
+  backup_name: "LIVE"
+
+app:
+ project_name: node-sample
+

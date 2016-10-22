@@ -1,0 +1,51 @@
+---
+
+- name: "Create lib folder if doesnt exist"
+  sudo: yes
+  file: path="/usr/src/lib" state=directory owner="root" group="root" mode=0755
+
+- name: "Copy the Docker-Compose file"
+  sudo: yes  
+  template: src="files/docker-compose.yml" dest="/usr/src/lib/docker-compose.yml" owner="root" group="root" mode=0755
+
+- name: "Start Couchbase from Docker"
+  sudo: yes
+  command: docker-compose -p db up -d
+  environment:
+    COMPOSE_API_VERSION: 1.18
+  args:
+    chdir: /usr/src/lib/
+
+- name: "Wait for couchbase start"
+  wait_for: port=8091
+  changed_when: false
+
+- name: "Detect if couchbase hostname is configured"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} server-info -c localhost:8091 {{couch_auth}} |  grep {{ansible_host}} >/dev/null && echo TRUE || echo FALSE"
+  register: node_status
+  changed_when: false
+
+- name: "Set node settings"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} node-init -c localhost:8091 {{couch_auth}} --node-init-hostname=127.0.0.1 --node-init-data-path=/tmp --node-init-index-path=/tmp"
+  when: node_status.stdout != 'TRUE'
+
+- name: "Sleep a few seconds to let Couchbase catchup"
+  pause: seconds=3
+  changed_when: false
+
+- name: "Wait for couchbase"
+  wait_for: port=8091
+
+- name: "Detect whether node is clustered"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} server-list -c localhost:8091 {{couch_auth}} > /dev/null && echo TRUE || echo FALSE"
+  register: cluster_status
+  changed_when: false
+  
+- name: "Initialise cluster"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} cluster-init -c localhost:8091 --cluster-init-port=8091 --cluster-ramsize={{couch.cluster_ram_quota}} --cluster-username={{couch.admin}} --cluster-password={{couch.password}}"
+
+  when: cluster_status.stdout == "FALSE"

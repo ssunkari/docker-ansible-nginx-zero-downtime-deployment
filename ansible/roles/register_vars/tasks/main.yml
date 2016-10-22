@@ -1,0 +1,20 @@
+---
+# This role sets up variables that are used by multiple roles,
+# in different plays, hence the abstraction
+
+- name: "Load Common Variables"
+  include_vars: defaults.yml
+
+- name: "Load {{env}} Environment Specific Variables"
+  include_vars: "{{env}}.yml"
+
+- name: "Load {{env}} Buckets and Views"
+  include_vars: "{{env}}-bucketsviews.yml"
+
+- name: "Combine default and env specific configs"
+  set_fact:
+    couch: "{{couch_defaults|combine(couch_env_specific)}}"
+
+- name: "Setup Useful Strings"
+  set_fact:
+    couch_auth: "-u {{couch.admin}} -p {{couch.password}}"

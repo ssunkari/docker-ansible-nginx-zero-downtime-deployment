@@ -1,0 +1,15 @@
+---
+
+- name: "Copy deployment scripts"
+  sudo: yes
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'files/', dest: '/usr/src/www' }
+
+- name: "Stop, Deploy and Start the containers"
+  sudo: yes
+  script: deploy-and-restart.sh
+  environment:
+    COMPOSE_API_VERSION: 1.18
+  args:
+    chdir: /usr/src/www/

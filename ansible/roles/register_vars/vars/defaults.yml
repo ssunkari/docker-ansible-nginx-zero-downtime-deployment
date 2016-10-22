@@ -1,0 +1,18 @@
+couch_defaults:
+  url_prefix: 'http://packages.couchbase.com/releases/4.1.1'
+  package: 'couchbase-server-enterprise_4.1.1-ubuntu14.04_amd64.deb'
+  cluster_ram_quota: '256'
+  cli: '/opt/couchbase/bin/couchbase-cli'
+  nodes: 3
+  # http://docs.couchbase.com/admin/admin/Install/install-networkPorts.html
+  port_list:
+    - "8091:8092"
+    - "11207"
+    - "11209:11211"
+    - "11214:11215"
+    - "18091:18092"
+    - "4369"
+    - "21100:21299"
+app:
+ project_root: /var/www
+ project_repo: https://github.com/dickeyxxx/node-sample

@@ -1,0 +1,38 @@
+---
+
+- name: "Calculate bucket memory size for {{item.name}}"
+  set_fact: ram_size="{{ couch.cluster_ram_quota | float  * item.ram | float  - 1 }}"
+  # " this comments sorts out a vim syntax highlighting bug
+
+- name: "Set the bucket password property"
+  set_fact: bucket_password="--bucket-password={{item.password}}"
+  when: item.password is defined
+
+- name: "Create {{item.name}} bucket if it doesn't exist"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} bucket-list -c localhost:8091 {{couch_auth}} | grep {{item.name}} || {{couch.cli}} bucket-create -c localhost:8091 {{couch_auth}} --bucket={{item.name}} --bucket-ramsize={{ram_size | int}} --enable-flush={{item.flush}} {{bucket_password | default()}}" 
+  register: bucket_add
+  changed_when: "bucket_add.stdout.find('SUCCESS') != -1"
+
+- name: "Get bucket {{item.name}} size"
+  shell: /usr/local/bin/bucket_data.py ram {{item.name}} {{couch.admin}} {{couch.password}}
+  register: bucket_size
+  changed_when: false
+
+- name: "Get bucket {{item.name}} flush setting"
+  shell: /usr/local/bin/bucket_data.py flush {{item.name}} {{couch.admin}} {{couch.password}}
+  register: bucket_flush
+  changed_when: false
+
+- name: "Set bucket {{item.name}} size"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} bucket-edit -c localhost:8091 {{couch_auth}} --bucket {{item.name}} --bucket-ramsize={{ram_size | int}}"
+  when: "{{ ram_size | int }} != {{ bucket_size.stdout | int }}"
+
+- name: "Set bucket {{item.name}} flush setting"
+  sudo: yes
+  command: docker exec -i db_couchbase_1 bash -c "{{couch.cli}} bucket-edit -c localhost:8091 {{couch_auth}} --bucket {{item.name}} --enable-flush={{item.flush}}"
+  when: "{{ item.flush | int }} != {{ bucket_flush.stdout | int }}"
+
+
+

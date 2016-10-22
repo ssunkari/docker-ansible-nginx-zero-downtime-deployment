@@ -1,0 +1,1 @@
+ansible-playbook -vvv --ssh-extra-args="-o ServerAliveInterval=30 -o ServerAliveCountMax=100" -i "hosts" -e env="live" "main.yml"

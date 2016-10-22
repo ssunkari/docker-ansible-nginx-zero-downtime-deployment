@@ -1,0 +1,8 @@
+---
+
+- name: "Update apt-get"
+  command: apt-get update
+  sudo: yes
+
+- name: "Setting up some important bits"
+  script: files/setup.sh

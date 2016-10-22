@@ -1,0 +1,10 @@
+# Buckets are created/edited in the order they appear here.
+# When specifying buckets, think about the order they are in
+# so that you don't end up creating a bucket that uses 0.5 of the RAM,
+# before you resize the others to 0.3, for example.
+couch_buckets:
+  - name: "user"
+    ram: 0.95
+    flush: 1
+
+
