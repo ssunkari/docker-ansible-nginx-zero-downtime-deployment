@@ -4,13 +4,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var redisClient = function () {
 
-};
 var LocalStrategy = require('passport-local').Strategy;
-var db = require('./middleware/auth')(redisClient);
 var shaGen = require('./middleware/shaGen');
+
 var config = require('./config');
+
+var db = require('./middleware/auth')(docStore);
+var couchDbFactory = require('./dataSources/db/couchbaseDb');
+var docStore = require('./dataSources/db/docStore')(couchDbFactory, config.get('couchbase'));
 
 require('./extensions');
 // require('./cronJob');
@@ -47,6 +49,7 @@ passport.deserializeUser(function (user, cb) {
     cb(null, user);
 
 });
+
 app.use(require('express-session')({
     secret: 'keyboard cat',
     resave: false,
@@ -75,15 +78,18 @@ app.use(express.static(path.join(__dirname, '../', '/public')));
 app.use('/', routes);
 
 // var sgEmailClient = require('./sendGridEmailApi');
+
 var sgEmailClient = function () {
     return Promise.resolve(true);
 };
 
 // smsClient = require('twilio')(config.get('twilio:accountSid'), config.get('twilio:authToken'));
-app.use('/signup', require('./routes/signup')(redisClient, sgEmailClient));
-app.use('/', require('./routes/passwordRecovery')(redisClient, sgEmailClient));
-app.use('/houseshares', require('./routes/houseshares')(redisClient, sgEmailClient));
-app.use('/profile', require('./routes/profile')(redisClient, sgEmailClient));
+
+app.use('/signup', require('./routes/signup')(docStore, sgEmailClient));
+app.use('/', require('./routes/passwordRecovery')(docStore, sgEmailClient));
+app.use('/houseshares', require('./routes/houseshares')(docStore, sgEmailClient));
+app.use('/profile', require('./routes/profile')(docStore, sgEmailClient));
+
 // app.use('/bills', require('./routes/bills')(redisClient, sgEmailClient, smsClient));
 
 // catch 404 and forward to error handler

@@ -1,12 +1,11 @@
 'use strict';
 module.exports = {
     couchbase: {
-
+        host: 'couchbase://192.168.50.10',
+        bucket: 'users',
+        refreshTime: 5000
     },
-    redis: {
-        rediscloud_url: 'redis://rediscloud:password@192.168.50.2:6379'
 
-    },
     sendGrid: {
         apiKey: process.env.SGAPIKEY
     },
