@@ -4,7 +4,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var redisClient = require('./redisClient');
+var redisClient = function () {
+
+};
 var LocalStrategy = require('passport-local').Strategy;
 var db = require('./middleware/auth')(redisClient);
 var shaGen = require('./middleware/shaGen');
