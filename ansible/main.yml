@@ -1,9 +1,9 @@
-- hosts: production
+- hosts: dev
   gather_facts: no
-  # connection: local
+  connection: local
   roles:
     - register_vars
     - docker
-    # - couchbase
+    - couchbase
     - buckets    
   no_log: False

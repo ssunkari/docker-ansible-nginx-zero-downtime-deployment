@@ -1,0 +1,27 @@
+extends plain_layout
+
+block content
+  .container
+    .row
+    .col-md-4.col-md-offset-4
+        .login-panel.panel.panel-default
+          .panel-heading
+            h3.panel-title Introduce yourself
+          .panel-body
+            form(role='form',action="/profile/edit/#{uid}",method="post")
+              fieldset
+                 .form-group
+                  input.form-control(placeholder='Display Name', name='profile_name', type='text', autofocus='',required='')
+                .form-group
+                  input.form-control(placeholder='Email Address for contact:', name='profile_email', type='email', autofocus='',required='')
+                .form-group
+                  input.form-control(placeholder='Phone Number:', name='profile_phone', type='number', required='')
+                .form-group
+                  input.form-control(placeholder='Fax Number:', name='profile_fax', type='number', required='')
+                .form-group
+                  textarea.form-control(placeholder='Complete Address', name='profile_address', rows='3', required='')
+                .form-group
+                  input.form-control(placeholder='Website Url', name='profile_website', type='url', required='')
+                button.btn.btn-lg.btn-success.btn-block(href='submit') Save
+  script(src='/dist/js/metisMenu.min.js')
+  script(src='/javascripts/bootstrap.min.js')

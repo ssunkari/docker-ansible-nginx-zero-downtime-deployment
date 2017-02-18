@@ -1,6 +1,7 @@
-var shaGen = require('../shaGen');
+'use strict'
+let shaGen = require('../shaGen');
 
-module.exports = function (redisClient) {
+module.exports = function (docStore) {
     return {
         findById: function (id, cb) {
             process.nextTick(function () {
@@ -16,7 +17,10 @@ module.exports = function (redisClient) {
             console.log('username', username);
             console.log('password', password);
             var username = username.trim().toLowerCase();
-            return redisClient.hgetallAsync(shaGen(username));
+            let key = shaGen(username);
+            return docStore.getDocsAsync(key).then((userDocs) => {
+                return userDocs[key];
+            });
         }
     }
 };

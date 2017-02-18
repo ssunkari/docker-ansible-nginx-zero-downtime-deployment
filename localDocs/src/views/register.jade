@@ -20,6 +20,11 @@ block main
                         .form-group
                           input.form-control(placeholder='And Here’s my password:', name='password', type='password', required='')
                         .form-group
+                         label Are you a 
+                         select.form-control(name='user_category')
+                           each user_category in ['Doctor', 'Patient']
+                             option= user_category                        
+                        .form-group
                           .row
                             .col-md-3.col-md-offset-1
                               input(type="checkbox", name="patient")

@@ -1,5 +1,5 @@
-module.exports = function (redisClient) {
+module.exports = function (docStore) {
     return {
-        users: require('./users')(redisClient)
+        users: require('./users')(docStore)
     };
 }

@@ -18,13 +18,10 @@ block content
                 .form-group
                   input.form-control(placeholder='And Here’s my password:', name='password', type='password', required='')
                 .form-group
-                  .row
-                    .col-md-3.col-md-offset-1
-                      input(type="checkbox", name="patient")
-                      |              Patient?
-                    .col-md-3.col-md-offset-1                           
-                      input(type="checkbox", name="doctor")
-                      |              Doctor?
+                        select.form-control(name='user_category')
+                          //- option(selected="seletced" disabled="disabled") Select Profession
+                          option Doctor
+                          option Patient  
                 button.btn.btn-lg.btn-success.btn-block(href='submit') Sign Up
             
             if userExist && !userActivated
@@ -33,7 +30,7 @@ block content
                 | to resend the activation link 
             else if userExist
               p User already exists with specified username  
-                a(href='/') click here 
+                a(href='/login') click here 
                 | to login
             else if success
               p Activation email has been sent please activate your account

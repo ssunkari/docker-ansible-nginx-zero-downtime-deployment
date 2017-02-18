@@ -2,21 +2,22 @@ var express = require('express');
 var middleware = require('../middleware');
 var router = express.Router();
 
-module.exports = function (redisClient, emailClient) {
+module.exports = function (couchbaseCli, emailClient) {
 
-    router.post('/', middleware.houseshares.setPropertyFromRequest('username'),
-        middleware.signup.validateUserByEmail(redisClient),
-        middleware.signup.register(redisClient),
-        middleware.signup.sendEmail(emailClient),
+    router.post('/', middleware.request.setPropertyFromRequest('uid', 'username'),
+        middleware.signup.validateUserByEmail(couchbaseCli),
+        middleware.signup.register(couchbaseCli),
+        // middleware.signup.sendEmail(emailClient),
         middleware.signup.render());
 
     router.get('/', function (req, res) {
         res.render('signup', {
-            title: 'Divider-Signup Page',
+            title: getPageTitle('Signup'),
             errors: []
         });
     });
-    router.get('/resend/email', middleware.houseshares.setPropertyFromRequest('uid'),
+
+    router.get('/resend/email', middleware.request.setPropertyFromRequest('uid', 'uid'),
         middleware.signup.sendEmail(emailClient),
         function (req, res, next) {
             res.redirect('/');
@@ -24,9 +25,9 @@ module.exports = function (redisClient, emailClient) {
     );
 
     router.get('/activate/:uid',
-        middleware.houseshares.setPropertyFromRequest('uid'),
-        middleware.houseshares.users.userExists(redisClient),
-        middleware.signup.activate(redisClient),
+        middleware.request.setPropertyFromRequest('uid', 'uid'),
+        middleware.houseshares.users.userExists(couchbaseCli),
+        middleware.signup.activate(couchbaseCli),
         function (req, res, next) {
             res.redirect('/profile?uid=' +
                 req.uid);

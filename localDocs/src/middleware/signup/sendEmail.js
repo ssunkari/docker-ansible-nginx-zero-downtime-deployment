@@ -12,7 +12,7 @@ module.exports = function (emailClient) {
             console.log('Email Client :: User Exist', req.userExist);
             next();
         } else {
-            var username = req.uid.trim();
+            var username = req.ctx.uid.trim();
             var userKey = shaGen(username).toLowerCase();
 
             emailClient(username, {

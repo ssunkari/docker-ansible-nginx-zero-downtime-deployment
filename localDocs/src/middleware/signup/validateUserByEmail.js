@@ -1,13 +1,16 @@
+'use strict'
 var shaGen = require('../shaGen.js');
-module.exports = function (redisClient) {
+var debugLog = require('debug-log')('user');
+module.exports = function (docstore) {
     return function (req, res, next) {
         if (req.uid) {
-            var userKey = shaGen(req.uid.trim().toLowerCase());
-            redisClient.hgetallAsync(userKey).then(function (userObj) {
-                if (userObj) {
+            var userKey = shaGen(req.ctx.uid.trim().toLowerCase());
+            docstore.getDocsAsync(userKey).then(function (userDoc) {
+                if (Object.keys(userDoc).length) {
+                    let user = userDoc[userKey];
                     req.userExist = true;
-                    req.activated = userObj.activated
-                    console.log('validation:: User Exists');
+                    req.activated = user.activated
+                    debugLog('validation:: User Exists');
                 }
                 next();
             });

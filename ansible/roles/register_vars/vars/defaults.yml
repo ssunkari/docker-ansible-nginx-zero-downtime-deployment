@@ -1,6 +1,4 @@
 couch_defaults:
-  url_prefix: 'http://packages.couchbase.com/releases/4.1.1'
-  package: 'couchbase-server-enterprise_4.1.1-ubuntu14.04_amd64.deb'
   cluster_ram_quota: '256'
   cli: '/opt/couchbase/bin/couchbase-cli'
   nodes: 3

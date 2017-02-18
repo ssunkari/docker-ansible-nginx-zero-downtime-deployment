@@ -4,15 +4,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var Promise = require('bluebird');
 
 var LocalStrategy = require('passport-local').Strategy;
 var shaGen = require('./middleware/shaGen');
 
 var config = require('./config');
 
-var db = require('./middleware/auth')(docStore);
+var globalHelperFunctions = require('./globalHelperFunctions');
+
 var couchDbFactory = require('./dataSources/db/couchbaseDb');
-var docStore = require('./dataSources/db/docStore')(couchDbFactory, config.get('couchbase'));
+
+var docStoreInstance = Promise.promisifyAll(require('./dataSources/db/docStore')(couchDbFactory, config.get('couchbase')));
+var db = require('./middleware/auth')(docStoreInstance);
 
 require('./extensions');
 // require('./cronJob');
@@ -85,10 +89,10 @@ var sgEmailClient = function () {
 
 // smsClient = require('twilio')(config.get('twilio:accountSid'), config.get('twilio:authToken'));
 
-app.use('/signup', require('./routes/signup')(docStore, sgEmailClient));
-app.use('/', require('./routes/passwordRecovery')(docStore, sgEmailClient));
-app.use('/houseshares', require('./routes/houseshares')(docStore, sgEmailClient));
-app.use('/profile', require('./routes/profile')(docStore, sgEmailClient));
+app.use('/signup', require('./routes/signup')(docStoreInstance, sgEmailClient));
+app.use('/', require('./routes/passwordRecovery')(docStoreInstance, sgEmailClient));
+app.use('/houseshares', require('./routes/houseshares')(docStoreInstance, sgEmailClient));
+app.use('/profile', require('./routes/profile')(docStoreInstance, sgEmailClient));
 
 // app.use('/bills', require('./routes/bills')(redisClient, sgEmailClient, smsClient));
 
